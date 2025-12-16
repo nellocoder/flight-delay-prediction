@@ -45,4 +45,4 @@ The analysis confirms that **Airline Carrier** and **Flight Volume** are nearly 
 ## 🚀 How to Run
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/flight-delay-prediction.git](https://github.com/yourusername/flight-delay-prediction.git)
+   git clone [https://github.com/nellocoder/flight-delay-prediction.git](https://github.com/nellocoder/flight-delay-prediction.git)
