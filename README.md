@@ -7,7 +7,7 @@ Regression analysis predicting airline delays using Python and Scikit-Learn.
 ![Status](https://img.shields.io/badge/Status-Complete-green)
 
 ## 📌 Project Overview
-This project applies **Supervised Machine Learning (Regression)** to predict the total minutes of delay for airline flights. By analyzing historical flight data, we identify key drivers of delays—specifically focusing on **flight volume** and **airline carriers**.
+This project applies **Supervised Machine Learning (Regression)** to predict the total minutes of delay for airline flights. By analyzing historical flight data, we identify key drivers of delays; specifically focusing on **flight volume** and **airline carriers**.
 
 The model achieves high accuracy by using **One-Hot Encoding** to handle categorical airline data and **Linear Regression** to quantify the relationship between flight traffic and delay time.
 
