@@ -15,8 +15,8 @@ The model achieves high accuracy by using **One-Hot Encoding** to handle categor
 * **Data Cleaning:** Handled missing values and filtered dataset to relevant operational metrics.
 * **Feature Engineering:** Applied **One-Hot Encoding** to convert categorical `carrier` text data (e.g., "Southwest", "Delta") into numerical format for the model.
 * **Predictive Modeling:** Built a **Linear Regression** model to predict continuous delay times.
-* **Performance Analysis:** Evaluated model using R-Squared and Mean Absolute Error (MAE).
 * **Business Intelligence:** Visualized seasonality, airport bottlenecks, and airline efficiency metrics.
+* **Hypothesis Testing:** Conducted a comparative analysis between Linear and Polynomial regression to test for non-linear congestion effects.
 
 ---
 
@@ -39,23 +39,34 @@ Total delay minutes can be misleading because large airlines naturally have more
 
 ---
 
-## 📊 Model Performance
-The model demonstrates an exceptionally strong fit for the data.
+## 📊 Model Performance (Champion Model)
+The **Linear Regression** model (including Carrier data) demonstrates an exceptionally strong fit.
 
 | Metric | Score | Interpretation |
 | :--- | :--- | :--- |
-| **R-Squared ($R^2$)** | **0.95 (95.3%)** | The model explains 95% of the variance in flight delays. This confirms a strong linear relationship: **More Flights = More Delays**. |
+| **R-Squared ($R^2$)** | **0.95 (95.3%)** | The model explains 95% of the variance in flight delays. This confirms a strong linear relationship: **More Flights + Specific Carriers = More Delays**. |
 | **Mean Absolute Error (MAE)** | **~951 minutes** | On a monthly aggregate scale where delays often exceed 100,000 minutes, this represents an error rate of **<1%**. |
 
-### 💡 Key Insight
-The analysis confirms that **Airline Carrier** and **Flight Volume** are nearly perfect predictors of total delay time on a macro scale. While individual outlier flights may deviate, the aggregate trend is highly predictable.
+---
+
+## 🧪 Model Experimentation: Linear vs. Polynomial
+We tested the hypothesis that delays might grow **exponentially** (rather than linearly) as flight volume increases (e.g., congestion collapse). We compared a Standard Linear Model against a Polynomial Model (Degree 2) using *only* flight volume.
+
+| Model | R-Squared | Verdict |
+| :--- | :--- | :--- |
+| **Linear (Volume Only)** | **0.64** | **Winner.** The relationship is strictly linear. |
+| **Polynomial (Degree 2)** | 0.60 | **Loser.** Adding complexity/curves introduced noise and reduced accuracy. |
+
+**Key Findings:**
+1.  **Linearity:** Delays accumulate steadily, not exponentially.
+2.  **The "Carrier Effect":** Removing Carrier data dropped accuracy from **95%** to **64%**. This proves that **30% of delay variance** is driven by *who* is flying (operational efficiency), not just *how much* they are flying.
 
 ---
 
 ## 🛠️ Tech Stack
 * **Python**: Core programming language.
 * **Pandas**: For data manipulation and aggregation.
-* **Scikit-Learn**: For training the Linear Regression model.
+* **Scikit-Learn**: For training the Linear Regression and Polynomial Features.
 * **Seaborn / Matplotlib**: For visualizing delay distributions and correlations.
 
 ---
