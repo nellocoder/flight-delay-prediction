@@ -1,3 +1,6 @@
+![License](https://img.shields.io/badge/license-MIT-green)
+![Last Commit](https://img.shields.io/github/last-commit/nellocoder/<repo-name>)
+
 # ✈️ Flight Delay Prediction (Regression Analysis)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
